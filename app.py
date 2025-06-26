@@ -36,6 +36,16 @@ config = {
             "api_key": os.getenv("OPENAI_API_KEY"),
         },
     },
+    # Graph db to create a mind map of the facts and relations of the user
+    # Used to maintain relations between various vectors stored in vector db 
+     "graph_store": {
+        "provider": "neo4j",
+        "config": {
+            "url": "bolt://localhost",
+            "username": "neo4j",
+            "password": "hello-world"
+        }
+    }
 }
 
 
@@ -85,6 +95,5 @@ def chat():
             ],
             user_id="rishabh",
         )
-
 
 chat()
